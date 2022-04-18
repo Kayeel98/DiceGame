@@ -42,11 +42,12 @@ if house_dice > player_dice:
 	player_winnings += bet
 elif player_dice > house_dice:
 	print("Player wins!, you have won {0}".format(bet_value))
-	player_winnings -= bet
+	player_winnings = player_winnings - bet
 else:
 	print("Draw, Nobody wins")
 	player_winnings + 0 
 
+player_winnings = (int(player_winnings))
 print("Your current winnings are {0}".format(player_winnings))
 x = -20
 print(x)
