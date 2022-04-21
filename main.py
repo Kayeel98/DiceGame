@@ -63,12 +63,12 @@ print("2. NAH ill take the L")
 
 decision = input(int("So what is it gonna be: "))
 
-while decision == 1:
-	print("MooMoo dice shows ({0})".format(house_dice))
-	print("	 VERSUS				")	
-	print("{0} dice shows ({1})".format(name,player_dice))
+	if decision == 1:
+		print("MooMoo dice shows ({0})".format(house_dice))
+		print("	 VERSUS				")	
+		print("{0} dice shows ({1})".format(name,player_dice))
 	
-	print()
+		print()
 	
 	
 	bet_value = bet
