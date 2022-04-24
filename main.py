@@ -9,6 +9,7 @@ print("************ WELCOME!, {0} TO THE MOO MOO CASINO **************".format(n
 
 print()
 
+
 try:
 	bet = input("Place your bets: ")
 	bet = int(bet)
@@ -26,73 +27,62 @@ except ValueError:
 	print ("					PRESS RUN TO TRY AGAIN")
 	print()
 	quit()		
-    
 
-player_winnings = 0 
-house_dice = random.randint(1,12)
-player_dice = random.randint(1,12)
-print()
-
-
-print("MooMoo dice shows ({0})".format(house_dice))
-print("	 VERSUS				")	
-print("{0} dice shows ({1})".format(name,player_dice))
-
-print()
-
-
-bet_value = bet
-if house_dice > player_dice:
-	print("MooMoo wins!, you have lost {0}".format(bet_value))
-	player_winnings -= bet_value
-elif player_dice > house_dice:
-	print("Player wins!, you have won {0}".format(bet_value))
-	player_winnings += bet_value
-else:
-	print("Draw, Nobody wins")
-	player_winnings + 0 
-
-player_winnings = int(player_winnings)
-print("Your current winnings are {0}".format(player_winnings))
-
-print()
-
-print("Do you wanna play again ?")
-print("1. YES")
-print("2. NAH ill take the L")
-
-decision = input(int("So what is it gonna be: "))
-
-	if decision == 1:
-		print("MooMoo dice shows ({0})".format(house_dice))
-		print("	 VERSUS				")	
-		print("{0} dice shows ({1})".format(name,player_dice))
-	
-		print()
+def dice_game(bet):	
+	house_dice = random.randint(1,12)
+	player_dice = random.randint(1,12)
+	print()
 	
 	
-	bet_value = bet
+	print("MooMoo dice shows ({0})".format(house_dice))
+	print("	 VERSUS				")	
+	print("{0} dice shows ({1})".format(name,player_dice))
+	
+	print()
+	player_winnings = 0 
+	
 	if house_dice > player_dice:
-		print("MooMoo wins!, you have lost {0}".format(bet_value))
-		player_winnings -= bet_value
+		print("MooMoo wins!, you have lost {0}".format(bet))
+		player_winnings -= bet
 	elif player_dice > house_dice:
-		print("Player wins!, you have won {0}".format(bet_value))
-		player_winnings += bet_value
+		print("Player wins!, you have won {0}".format(bet))
+		player_winnings += bet
 	else:
 		print("Draw, Nobody wins")
 		player_winnings + 0 
-	
 	player_winnings = int(player_winnings)
-	print("Your current winnings are {0}".format(player_winnings))
+	return player_winnings
+
+
+print()
+
+win = dice_game(bet)
+
+
+def accumulated_total(win):
+	accwin = 0
+	accwin += win
+	return accwin
+
+
+
+accumulated_total(win)
+
+accumulated = accumulated_total(win)
+
+if accumulated < 0:
+	print ("Your balance is: {}".format(accumulated))
+	print ("Good luck next time.")
+elif accumulated >0:
+	print ("Your balance is: {}".format(accumulated))
+	print ("Hope to see you soon!")
+else:
+	print ("Seems like you dont have anything, why not try again?")
+
+print()
+
+print("Try again?")
+print("1 for Yes, 2 for No")
+user_input = input("Insert here:")
+
 	
-	print()
-	
-	print("Do you wanna play again ?")
-	print("1. YES")
-	print("2. NAH ill take the L")
-	
-	decision = input(int("So what is it gonna be: "))
-	if decision == 0:
-		print("your winning / losing are: {0}".format(player_winnings))
-		print("Thanks for playing~!")
-		break
